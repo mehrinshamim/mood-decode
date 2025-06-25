@@ -1,0 +1,27 @@
+2025-06-25 21:42:11,219 - ERROR - API call failed: Client error '400 Bad Request' for url 'https://api.groq.com/openai/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+Traceback (most recent call last):
+  File "D:\college\S4\github_repos_4\moodcode\app\routes\nlp.py", line 27, in call_groq_api
+    response.raise_for_status()
+  File "D:\college\S4\github_repos_4\moodcode\venv\Lib\site-packages\httpx\_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://api.groq.com/openai/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+2025-06-25 21:42:11,219 - ERROR - Error analyzing mood: 
+Traceback (most recent call last):
+  File "D:\college\S4\github_repos_4\moodcode\app\routes\nlp.py", line 27, in call_groq_api
+    response.raise_for_status()
+  File "D:\college\S4\github_repos_4\moodcode\venv\Lib\site-packages\httpx\_models.py", line 758, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '400 Bad Request' for url 'https://api.groq.com/openai/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/400
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\college\S4\github_repos_4\moodcode\app\routes\nlp.py", line 68, in analyze_mood
+    response = await call_groq_api(messages, temperature=0.2, max_tokens=100)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\college\S4\github_repos_4\moodcode\app\routes\nlp.py", line 31, in call_groq_api
+    raise HTTPException(status_code=500, detail=f"API call failed: {str(e)}")
+fastapi.exceptions.HTTPException
